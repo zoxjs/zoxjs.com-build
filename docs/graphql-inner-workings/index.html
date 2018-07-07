@@ -31,7 +31,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/versions">v0.1.0</a>
+                        <a class="nav-link" href="/goals">Goals</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/zoxjs/zox">GitHub</a>
@@ -98,12 +98,12 @@ so lets first go ahead and define them.</p>
 <p>Now we will just have to assign those to our types,
 luckily there is a helper function for this!</p>
 <pre><code class="language-javascript">import {buildSchema} from &quot;graphql&quot;;
-import {assignResolvers} from &quot;graphql-system&quot;;
+import {assignResolvers} from &quot;graphql-plugins&quot;;
 
 const schema = buildSchema(typeDefs);
 assignResolvers(schema, resolvers);</code></pre>
 <p>To simplify this let&#39;s just write:</p>
-<pre><code class="language-javascript">import {makeSchema} from &quot;graphql-system&quot;;
+<pre><code class="language-javascript">import {makeSchema} from &quot;graphql-plugins&quot;;
 
 const schema = makeSchema(typeDefs, resolvers);</code></pre>
 <p>And we got our first valid GraphQL type!</p>
@@ -161,7 +161,7 @@ const query = `{
 }`;
 
 graphql(schema, query);</code></pre>
-<p>And this is what the <code>graphql-system</code> is built upon.<br>Hopefully you now understand the inner working of GraphQL.</p>
+<p>And this is what the <code>graphql-plugins</code> is built upon.<br>Hopefully you now understand the inner working of GraphQL.</p>
 </div>
         </div>
 

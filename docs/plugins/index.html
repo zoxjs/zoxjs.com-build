@@ -31,7 +31,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/versions">v0.1.0</a>
+                        <a class="nav-link" href="/goals">Goals</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/zoxjs/zox">GitHub</a>
@@ -96,8 +96,8 @@ function calc(args)
         }
     }
 }</code></pre>
-<p>This is basically how plugins themselves work,
-except that the <code>plugin-system</code> is heavily object-oriented
+<p>This is basically how <code>zox-plugins</code> themselves work,
+except that the <code>zox-plugins</code> are heavily object-oriented
 meaning that all plugins must be classes.</p>
 <h2 id="creating-plugins">Creating Plugins</h2>
 <p>First we will need to define a new plugin type.</p>
@@ -185,7 +185,7 @@ function calc(args)
     }
 }</code></pre>
 <p>In this simplistic example we did not need classes,
-but the <code>plugin-system</code> was targeted for plugins
+but the <code>zox-plugins</code> are targeted for plugins
 which require setup, in form of passing props
 either through the constructor
 or by assigning the object properties directly,

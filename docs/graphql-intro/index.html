@@ -31,7 +31,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/versions">v0.1.0</a>
+                        <a class="nav-link" href="/goals">Goals</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/zoxjs/zox">GitHub</a>
@@ -47,9 +47,9 @@
         <div class="article col-md-8 pad-lg">
             <h1>GraphQL Intro</h1>
             
-            <div class="body"><p>Zox.js was created with one goal in mind: <strong>Making scalable systems</strong><br>And this can easily be seen in the <code>graphql-system</code>.</p>
-<p>To start developing GrapQL API we need to add the package to our project:</p>
-<pre><code class="language-bash">npm i graphql-system</code></pre>
+            <div class="body"><p>Zox.js was created with one goal in mind: <strong>Making scalable systems</strong><br>And this can easily be achieved using the <code>graphql-plugins</code>.</p>
+<p>Setup a new zox project with GraphQL support:</p>
+<pre><code class="language-bash">npm i zox zox-plugins graphql-plugins</code></pre>
 <p>Lets start by defining a data type. Create a file called <code>User.ts</code></p>
 <pre><code class="language-typescript">// GraphQL type:
 
@@ -85,7 +85,7 @@ export type UserData = {
 but in our database this is stored in a separate table.</p>
 <p>So we will have to write a resolver to fetch this additional data.<br>We will then also have to define a top level query field, to make the user data available.<br>In the following example we will use mocked versions of our <em>users</em> and <em>subscriptions</em> tables.</p>
 <p>Create a file called <code>UserResolvers.ts</code></p>
-<pre><code class="language-typescript">import {Query, Resolver, ResolverBase} from &quot;graphql-system&quot;;
+<pre><code class="language-typescript">import {Query, Resolver, ResolverBase} from &quot;graphql-plugins&quot;;
 import {UserData, User, UserSubscription, UserDef} from &quot;./User&quot;;
 import {users, subscriptions} from &quot;./MockUserData&quot;;
 
@@ -115,7 +115,7 @@ where we define how to load the contents for this field.<br>Then we define a top
 that takes one required argument <code>id</code>
 which we use to try to find the requested data.</p>
 <p>In both cases we referenced the GraphQL type definition <code>UserDef</code>,
-which will be used by <code>graphql-system</code> to generate the schema.<br>It is important to reference all of the type definitions
+which will be used by <code>graphql-plugins</code> to generate the schema.<br>It is important to reference all of the type definitions
 related to each of our resolvers,
 in order to make sure they are all included in the final schema.</p>
 <p>Here&#39;s how a request to our new GraphQL schema might look like:</p>
