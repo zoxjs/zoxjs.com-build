@@ -10,7 +10,7 @@
 <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=UA-121980200-1" as="script">
 <link rel="preload" href="/googletaginit.js" as="script">
 
-<title>Rendering Engines | Zox.JS</title>
+<title>Contribute | Zox.JS</title>
 <link rel="stylesheet" href="/$/bootstrap/dist/css/bootstrap.min.css" >
 <link rel="stylesheet" href="/$/highlight.js/styles/vs2015.css" >
 <link rel="stylesheet" href="/bundle.css" >
@@ -47,56 +47,16 @@
     <div class="row">
 
         <div class="article col-md-8 pad-lg">
-            <h1>Rendering Engines</h1>
+            <h1>Contribute</h1>
             
-            <div class="body"><p>The purpose of render engine plugins is simple, compile a template string into an executable function.</p>
-<p><code>@RenderEngine</code> plugins have to specify a list of file extensions which should be associated with them.
-This is how the render service knows which render engine to use for which template.</p>
-<p>Render engines only need to have a <code>compile()</code> method
-that will take the template string and the file name
-and return a function that takes a context object and returns a string.</p>
-<pre><code class="language-ts">@RenderEngine(&#39;hbs&#39;, &#39;handlebars&#39;)
-export class HandlebarsEngine implements IRenderEngine
-{
-    public compile(template: string, filename: string): (context) =&gt; string
-    {
-        return Handlebars.compile(template);
-    }
-}</code></pre>
-<p>While the basic version of the Handlebars plugin would only call the <code>Handlebars.compile</code> method,
-in practice we will most likely want to have support for partials, helpers and decorators.</p>
-<p>Templates are only compiled once, just before they are first used.<br>If you can enable watch mode in the global config
-the render service will clear the cached version of the templates that change.</p>
-<h2 id="built-in-render-engine-plugins">Built-in render engine plugins</h2>
-<p>The most basic engine is the <code>JSTemplateLiteralEngine</code>.
-As the name suggests this engine simply treats the template as a javascript template literal.<br>It is associated with the <code>.js.html</code> file extension.
-The context is passed as the <code>_</code> argument
-and it&#39;s only feature is that it does not print variables if they are null or undefined.<br>The template can be wrapped in a try-catch block by setting <code>try_catch</code> to <code>true</code>
-in the <code>js.html</code> config file.</p>
-<pre><code class="language-xml">&lt;p&gt;${_.text}&lt;/p&gt;</code></pre>
-<p>The most feature rich engine is <code>HandlebarsEngine</code>.<br>Is is associated with the <code>.hbs</code> and <code>.handlebars</code> extensions.<br>It supports custom helper and decorator functions
-using <code>@HandlebarsHelper(&#39;name&#39;)</code> and  <code>@HandlebarsDecorator(&#39;name&#39;)</code> respectively.<br>And it can use partial templates which are by default located in the <code>partials</code> directory.<br>Path to partials and the compile options can be set in the <code>handlebars</code> config file
-and the default values are:</p>
-<pre><code class="language-yaml">partials: partials
-# compile: {}</code></pre>
-<p>Other render engine plugins have mostly just a basic support
-and simply forward the settings from their config files to the underlying npm module.</p>
-<p>Notes on feature support:</p>
-<ul>
-<li><p><code>Mustache</code>: no support for partials</p>
-</li>
-<li><p><code>EmbeddedJS</code>: (ejs): can include templates relative to the current template,
-but the included template file is reloaded every time;<br>no context object is provided to the template</p>
-</li>
-<li><p><code>Twig</code>: can include templates relative to the current template,
-but even if you enable the watch mode the included template will not be reloaded
-unless the template that includes it is modified;<br>no block support</p>
-</li>
-<li><p><code>Nunjucks</code>: basic support</p>
-</li>
-<li><p><code>Pug</code>: basic support</p>
-</li>
-</ul>
+            <div class="body"><p>There are a lot of ways you can help the Zox.js project.</p>
+<p>If you have founds issues on the official docs website
+you can report them <a href="https://github.com/zoxjs/zoxjs.com-source/issues">here</a>.</p>
+<p>You can report bugs for the main project <a href="https://github.com/zoxjs/zox/issues">here</a>.<br>Same goes for all other project over at <a href="https://github.com/zoxjs?tab=repositories">github</a>.</p>
+<p>We also accept pool requests and all contributors
+will be credited in the repo they contributed to.</p>
+<p>Another great way you can help the community is by creating
+your own modules and plugins that extend Zox.js and publishing them on <a href="http://npmjs.com">npmjs.com</a>.</p>
 </div>
         </div>
 
@@ -131,7 +91,7 @@ unless the template that includes it is modified;<br>no block support</p>
                             <li><a href="/docs/render-service">Render Service</a></li>
                             <li><a href="/docs/renderable-elements">Renderable Elements</a></li>
                             <li><a href="/docs/page-layout-and-blocks">Page Layout and Blocks</a></li>
-                            <li class="current"><a href="/docs/rendering-engines">Rendering Engines</a></li>
+                            <li><a href="/docs/rendering-engines">Rendering Engines</a></li>
                     </ul>
                     <h4>React</h4>
                     <ul>
@@ -164,7 +124,7 @@ unless the template that includes it is modified;<br>no block support</p>
                     </ul>
                     <h4>Contributeing</h4>
                     <ul>
-                            <li><a href="/contribute">How to Contribute</a></li>
+                            <li class="current"><a href="/contribute">How to Contribute</a></li>
                     </ul>
             </div>
         </div>
@@ -180,13 +140,11 @@ unless the template that includes it is modified;<br>no block support</p>
                     <div class="col-6">
                         <div>
                                 <p class="primary-color">Previous article</p>
-                                <h3><a href="/docs/page-layout-and-blocks">Page Layout and Blocks</a></h3>
+                                <h3><a href="/docs/property-decorators">Property Decorators</a></h3>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="text-right">
-                                <p class="primary-color">Next article</p>
-                                <h3><a href="/docs/react-ssr">Server-Side Rendering</a></h3>
                         </div>
                     </div>
                 </div>
