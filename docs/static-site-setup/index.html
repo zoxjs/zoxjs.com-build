@@ -10,7 +10,7 @@
 <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=UA-121980200-1" as="script">
 <link rel="preload" href="/googletaginit.js" as="script">
 
-<title>Static Site Setup | Zox.JS</title>
+<title>Static Site Setup | Zox.js</title>
 <link rel="stylesheet" href="/$/bootstrap/dist/css/bootstrap.min.css" >
 <link rel="stylesheet" href="/$/highlight.js/styles/vs2015.css" >
 <link rel="stylesheet" href="/bundle.css" >
@@ -20,7 +20,7 @@
 <body >
 <nav class="navbar navbar-expand-sm navbar-dark primary">
     <div class="container">
-        <a class="navbar-brand" href="/">Zox.JS</a>
+        <a class="navbar-brand" href="/">Zox.js</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,16 +49,19 @@
         <div class="article col-md-8 pad-lg">
             <h1>Static Site Setup</h1>
             
-            <div class="body"><p>This page will guide you through creating a new static site project
-and </p>
-<p>All you need to get started with static pages is to install these 2 npm modules:</p>
-<pre><code class="language-bash">npm i zox zox-static-pages</code></pre>
-<p>Then <a href="/docs/environment-bootstrapping">bootstrap your environment</a>
-the same way as when normally running zox server.<br>This will allow you to preview your pages.</p>
-<p>To export your site you will need another script
-where you will use the same environment
-and the <code>StaticExportService</code> to get your rendered pages
-and required js/css files.</p>
+            <div class="body"><p>The easiest way to setup a new project is using the <a href="https://www.npmjs.com/package/zox-cli">CLI tool</a>.</p>
+<h3 id="install">Install</h3>
+<pre><code class="language-bash">npm i -g zox-cli</code></pre>
+<h3 id="usage">Usage</h3>
+<pre><code class="language-bash">zox init &lt;template-name&gt; &lt;project-name&gt;</code></pre>
+<h3 id="example">Example</h3>
+<pre><code class="language-bash">zox init static-site-handlebars my-site</code></pre>
+<h3 id="custom-templates">Custom templates</h3>
+<pre><code class="language-bash">zox init &lt;username&gt;/&lt;repo&gt; &lt;my-project&gt;</code></pre>
+<h3 id="required-global-tools">Required global tools</h3>
+<p><strong>git</strong> for cloning the project</p>
+<p><strong>npm</strong> for installing dependencies</p>
+<p><strong>tsc</strong> for compiling typescript</p>
 </div>
         </div>
 
