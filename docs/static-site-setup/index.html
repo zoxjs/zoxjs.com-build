@@ -53,15 +53,25 @@
 <h3 id="install">Install</h3>
 <pre><code class="language-bash">npm i -g zox-cli</code></pre>
 <h3 id="required-global-tools">Required global tools</h3>
-<p><strong>git</strong> for cloning the project</p>
-<p><strong>npm</strong> for installing dependencies</p>
-<p><strong>tsc</strong> for compiling typescript</p>
+<p><a href="https://nodejs.org/">node</a> to run the project</p>
+<p><a href="https://git-scm.com/downloads">git</a> for cloning the project</p>
+<p><a href="https://www.npmjs.com/package/typescript">tsc</a> for compiling typescript</p>
+<h3 id="optional-global-tools">Optional global tools</h3>
+<p><a href="https://www.npmjs.com/package/browserify">browserify</a> for building frontend scripts</p>
+<p><a href="https://www.npmjs.com/package/watchify">watchify</a> for watching frontend scripts for changes</p>
+<p><a href="https://www.npmjs.com/package/sass">sass</a> for building css</p>
 <h3 id="usage">Usage</h3>
 <pre><code class="language-bash">zox init &lt;template-name&gt; &lt;project-name&gt;</code></pre>
 <h3 id="example">Example</h3>
 <pre><code class="language-bash">zox init static-site-handlebars my-site</code></pre>
 <h3 id="custom-templates">Custom templates</h3>
 <pre><code class="language-bash">zox init &lt;username&gt;/&lt;repo&gt; &lt;my-project&gt;</code></pre>
+<h3 id="publishing">Publishing</h3>
+<p>First make sure to set the remote origin for the source repository and the www repository.</p>
+<p>Then build static files.</p>
+<p>Finally commit and push all changes on both repositories.</p>
+<p>Depending on which template project you used it might have a command that does all this for you, eg:</p>
+<pre><code class="language-bash">npm run build-commit-publish</code></pre>
 </div>
         </div>
 
