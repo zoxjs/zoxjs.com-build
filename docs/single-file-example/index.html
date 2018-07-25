@@ -65,7 +65,7 @@ app.listen(8080);
 console.log(&#39;Started&#39;);</code></pre>
 <p>You can register <code>get</code>, <code>post</code>, <code>put</code> or <code>delete</code> endpoints by using the functions with the same name.
 They all take the route as the first argument and a handler as the second argument.</p>
-<p>The handler&#39;s only argument is the request and it is expected to return a response.<br>You can access the route parameters and the query using the same was as with regular controllers,
+<p>The handler&#39;s only argument is the request and it is expected to return a response.<br>You can access the route parameters and the query the same way as in regular controllers,
 using <code>this.params</code> and <code>this.query</code>.
 Of course to access the <code>this</code> object you will have to use <code>function ()</code> instead of <code>() =&gt;</code>.</p>
 <pre><code class="language-ts">app.get(&#39;/person/:name&#39;, function (request)
@@ -77,7 +77,7 @@ Of course to access the <code>this</code> object you will have to use <code>func
 <p>Since you can not declare dependencies in this mode
 you will have to manually get them before using them.</p>
 <pre><code class="language-js">const config = this.container.get(ConfigService);</code></pre>
-<p>If you want to use complex controllers you can still do that, but this requires more typing.</p>
+<p>If you want to use the standard controllers you can still do that.</p>
 <pre><code class="language-ts">Route({
     route: &#39;my-page&#39;
 })

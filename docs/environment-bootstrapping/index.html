@@ -54,7 +54,15 @@ with the goal to decentralize our code.
 This requires us to load all of our plugins and setup all of our services
 before we can start our app.</p>
 <p>The built-in <code>bootstrap()</code> function should be sufficient for most use cases.<br>Here&#39;s how you can use it in your dev.js file:</p>
-<pre><code class="language-typescript">import {bootstrap, startServer} from &quot;web-server/bootstrap&quot;;
+<pre><code class="language-typescript">import {bootstrap, startServer} from &quot;zox&quot;;
+
+bootstrap().then(container =&gt;
+{
+    startServer(container, /* port: */ 8080);
+    console.log(&#39;Started&#39;);
+});</code></pre>
+<p>Or using async-await:</p>
+<pre><code class="language-typescript">import {bootstrap, startServer} from &quot;zox&quot;;
 
 (async function start()
 {
@@ -86,11 +94,11 @@ export async function bootstrap(options?: BootstrapOptions): Promise&lt;ServiceC
 }</code></pre>
 <p>Then define how your plugins are loaded.</p>
 <pre><code class="language-js">await pluginDiscovery.scanProject(); // default method
-await pluginDiscovery.scanDirectory(&#39;src/Plugins&#39;); // custom plugins directory</code></pre>
+await pluginDiscovery.scanDirectory(&#39;src/Plugins&#39;); // hardcoded plugins directory path</code></pre>
 <p>Now you will need to register your services.</p>
 <p>Since the config service has required parameters we will have to set it up separately.</p>
 <pre><code class="language-js">container.registerUnresolved(new ConfigService(options.configBasePath));</code></pre>
-<p>All other services should instead be able to get their options from the config service
+<p>All other services should instead be able to get their options from the config service,
 so we can load all of them in a single line of code.</p>
 <pre><code class="language-js">container.create(ServicePluginManager).registerServices(true);</code></pre>
 <p>The <code>true</code> parameter here indicates that
